@@ -75,16 +75,19 @@
             naranja: [
                 { text: "Fuerza I por un día", chance: 50 },
                 { text: "Fuerza II por un día", chance: 30 },
-                { text: "Encantamiento de Fuerza (I o II)", chance: 10 },
+                { text: "Encantamiento de Fuerza II", chance: 10 },
                 { text: "Resistencia II por un día", chance: 10 }
             ],
             amarillo: [
-                { text: "Arco con encantamiento aleatorio", chance: 70 },
-                { text: "Glow a todos los jugadores durante un día", chance: 30 }
+                { text: "Arco con encantamiento aleatorio", chance: 20 },
+                { text: "Glow a todos los jugadores durante un día", chance: 20 },
+                { text: "Ballesta con encantamiento aleatorio", chance:20 },
+                { text: "Stack de flechas encantadas con efecto negativo", chance:20 },
+                { text: "Stack de flechas encantadas con efecto positivo", chance:20 }
             ],
             verde: [
-                { text: "Manzana dorada (1-5)", chance: 30 },
-                { text: "Poción de regeneración instantánea (I o II)", chance: 30 },
+                { text: "Manzana dorada x5", chance: 30 },
+                { text: "Poción de regeneración instantánea I", chance: 30 },
                 { text: "Manzana Dorada Encantada", chance: 5 },
                 { text: "Stack de comida random", chance: 25 },
                 { text: "Encantamiento de reparación", chance: 1 },
@@ -93,7 +96,7 @@
             azul: [
                 { text: "Prisa Minera I", chance: 20 },
                 { text: "Prisa Minera II", chance: 20 },
-                { text: "Pico con Fortuna (I-III)", chance: 20 },
+                { text: "Pico con Fortuna II", chance: 20 },
                 { text: "Visión nocturna durante un día", chance: 30 },
                 { text: "Un bloque de mineral aleatorio", chance: 10 }
             ],
@@ -101,7 +104,7 @@
                 { text: "Objeto mágico", chance: 25 },
                 { text: "Creas un evento mágico", chance: 25 },
                 { text: "El árbol mágico te regala algo", chance: 25 },
-                { text: "Manzana dorada (1-3)", chance: 25 }
+                { text: "Manzana dorada x3", chance: 25 }
             ],
             morado: [
                 { text: "Invisibilidad durante 1 hora", chance: 25 },
@@ -115,8 +118,8 @@
             const currentTime = new Date().getTime();
             const lastSpinTime = localStorage.getItem(`lastSpin`);
 
-            if (lastSpinTime && currentTime - lastSpinTime < 24 * 60 * 60 * 1000) {
-                const remainingTime = ((24 * 60 * 60 * 1000) - (currentTime - lastSpinTime)) / 1000;
+            if (lastSpinTime && currentTime - lastSpinTime < 12 * 60 * 60 * 1000) {
+                const remainingTime = ((12 * 60 * 60 * 1000) - (currentTime - lastSpinTime)) / 1000;
                 alert(`Debes esperar ${Math.ceil(remainingTime / 3600)} horas antes de girar otra ruleta.`);
                 return;
             }
