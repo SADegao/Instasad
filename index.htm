@@ -67,38 +67,43 @@
     <script>
         const rewards = {
             rojo: [
-                { text: "Regeneración II por un día", chance: 40 },
-                { text: "+2 corazones extras", chance: 5 },
-                { text: "Totem de inmortalidad", chance: 1 },
-                { text: "Regeneración I por un día", chance: 54 }
+                { text: "Regeneración II por un día", chance: 35 },
+                { text: "+2 corazones extras", chance: 10 },
+                { text: "Totem de inmortalidad", chance: 5 },
+                { text: "Regeneración I por un día", chance: 40 },
+                { text: "+5 corazones dorados", chance: 10 }
             ],
             naranja: [
-                { text: "Fuerza I por un día", chance: 50 },
+                { text: "Fuerza I por un día", chance: 40 },
                 { text: "Fuerza II por un día", chance: 30 },
                 { text: "Encantamiento de Fuerza II", chance: 10 },
-                { text: "Resistencia II por un día", chance: 10 }
+                { text: "Resistencia II por un día", chance: 10 },
+                { text: "+10 corazones dorados", chance: 10 }
             ],
             amarillo: [
                 { text: "Arco con encantamiento aleatorio", chance: 20 },
-                { text: "Glow a todos los jugadores durante un día", chance: 20 },
+                { text: "Glow a todos los jugadores durante un día", chance: 15 },
                 { text: "Ballesta con encantamiento aleatorio", chance:20 },
-                { text: "Stack de flechas encantadas con efecto negativo", chance:20 },
-                { text: "Stack de flechas encantadas con efecto positivo", chance:20 }
+                { text: "Stack de flechas encantadas con efecto negativo", chance:15 },
+                { text: "Stack de flechas encantadas con efecto positivo", chance:15 },
+                { text: "target a un equipo entero", chance:15 }
             ],
             verde: [
                 { text: "Manzana dorada x5", chance: 30 },
                 { text: "Poción de regeneración instantánea I", chance: 30 },
                 { text: "Manzana Dorada Encantada", chance: 5 },
-                { text: "Stack de comida random", chance: 25 },
-                { text: "Encantamiento de reparación", chance: 1 },
-                { text: "Objeto mágico", chance: 9 }
+                { text: "Stack de comida random", chance: 20 },
+                { text: "Encantamiento de reparación", chance: 5 },
+                { text: "Objeto mágico", chance: 5 },
+                { text: "Comida Dorada", chance: 5 }
             ],
             azul: [
                 { text: "Prisa Minera I", chance: 20 },
                 { text: "Prisa Minera II", chance: 20 },
                 { text: "Pico con Fortuna II", chance: 20 },
                 { text: "Visión nocturna durante un día", chance: 30 },
-                { text: "Un bloque de mineral aleatorio", chance: 10 }
+                { text: "Un bloque de mineral aleatorio", chance: 10 },
+                { text: "Stack de Mineral (Carbon, Hierro, Oro o Esmeralda)", chance: 10 }
             ],
             rosa: [
                 { text: "Objeto mágico", chance: 25 },
@@ -107,10 +112,11 @@
                 { text: "Manzana dorada x3", chance: 25 }
             ],
             morado: [
-                { text: "Invisibilidad durante 1 hora", chance: 25 },
-                { text: "Recompensa de otra ruleta", chance: 25 },
-                { text: "Glow a un jugador que quieras", chance: 25 },
-                { text: "Ubicación de un jugador muerto", chance: 25 }
+                { text: "Invisibilidad durante 1 hora", chance: 20 },
+                { text: "Recompensa de otra ruleta", chance: 20 },
+                { text: "Glow a un jugador que quieras", chance: 20 },
+                { text: "Ubicación de un jugador muerto", chance: 20 },
+                { text: "Invisibilidad a todo tu equipo", chance: 20 }
             ]
         };
 
@@ -118,7 +124,7 @@
             const currentTime = new Date().getTime();
             const lastSpinTime = localStorage.getItem(`lastSpin`);
 
-            if (lastSpinTime && currentTime - lastSpinTime < 12 * 60 * 60 * 1000) {
+            if (lastSpinTime && currentTime - lastSpinTime < 1 * 60 * 60 * 1000) {
                 const remainingTime = ((12 * 60 * 60 * 1000) - (currentTime - lastSpinTime)) / 1000;
                 alert(`Debes esperar ${Math.ceil(remainingTime / 3600)} horas antes de girar otra ruleta.`);
                 return;
