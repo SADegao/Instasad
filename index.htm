@@ -124,7 +124,7 @@
             const currentTime = new Date().getTime();
             const lastSpinTime = localStorage.getItem(`lastSpin`);
 
-            if (lastSpinTime && currentTime - lastSpinTime < 1 * 60 * 60 * 1000) {
+            if (lastSpinTime && currentTime - lastSpinTime < 12 * 60 * 60 * 1000) {
                 const remainingTime = ((12 * 60 * 60 * 1000) - (currentTime - lastSpinTime)) / 1000;
                 alert(`Debes esperar ${Math.ceil(remainingTime / 3600)} horas antes de girar otra ruleta.`);
                 return;
